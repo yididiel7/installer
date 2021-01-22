@@ -122,7 +122,8 @@
 
       <WindowsDesktop30RuntimePackRids Include="win-x64;win-x86" />
       <WindowsDesktop31RuntimePackRids Include="@(WindowsDesktop30RuntimePackRids)" />
-      <WindowsDesktopRuntimePackRids Include="@(WindowsDesktop31RuntimePackRids)" />
+      <WindowsDesktop50RuntimePackRids Include="@(WindowsDesktop31RuntimePackRids)" />
+      <WindowsDesktopRuntimePackRids Include="@(WindowsDesktop50RuntimePackRids);win-arm64" />
     </ItemGroup>
 
     <!--
@@ -289,6 +290,121 @@ Copyright (c) .NET Foundation. All rights reserved.
                               LatestRuntimeFrameworkVersion="$(MicrosoftAspNetCoreAppRuntimePackageVersion)"
                               TargetingPackName="Microsoft.AspNetCore.App.Ref"
                               TargetingPackVersion="$(MicrosoftAspNetCoreAppRefPackageVersion)"
+                              RuntimePackNamePatterns="Microsoft.AspNetCore.App.Runtime.**RID**"
+                              RuntimePackRuntimeIdentifiers="@(AspNetCoreRuntimePackRids, '%3B')"
+                              />
+
+    <KnownFrameworkReference Include="Microsoft.Windows.SDK.NET.Ref"
+                              TargetFramework="net6.0-windows10.0.17763.0"
+                              RuntimeFrameworkName="Microsoft.Windows.SDK.NET.Ref"
+                              DefaultRuntimeFrameworkVersion="$(MicrosoftWindowsSDKNETRef10_0_17763PackageVersion)"
+                              LatestRuntimeFrameworkVersion="$(MicrosoftWindowsSDKNETRef10_0_17763PackageVersion)"
+                              TargetingPackName="Microsoft.Windows.SDK.NET.Ref"
+                              TargetingPackVersion="$(MicrosoftWindowsSDKNETRef10_0_17763PackageVersion)"
+                              RuntimePackAlwaysCopyLocal="true"
+                              RuntimePackNamePatterns="Microsoft.Windows.SDK.NET.Ref"
+                              RuntimePackRuntimeIdentifiers="any"
+                              IsWindowsOnly="true"
+                              />
+
+    <KnownFrameworkReference Include="Microsoft.Windows.SDK.NET.Ref"
+                              TargetFramework="net6.0-windows10.0.18362.0"
+                              RuntimeFrameworkName="Microsoft.Windows.SDK.NET.Ref"
+                              DefaultRuntimeFrameworkVersion="$(MicrosoftWindowsSDKNETRef10_0_18362PackageVersion)"
+                              LatestRuntimeFrameworkVersion="$(MicrosoftWindowsSDKNETRef10_0_18362PackageVersion)"
+                              TargetingPackName="Microsoft.Windows.SDK.NET.Ref"
+                              TargetingPackVersion="$(MicrosoftWindowsSDKNETRef10_0_18362PackageVersion)"
+                              RuntimePackAlwaysCopyLocal="true"
+                              RuntimePackNamePatterns="Microsoft.Windows.SDK.NET.Ref"
+                              RuntimePackRuntimeIdentifiers="any"
+                              IsWindowsOnly="true"
+                              />
+
+    <KnownFrameworkReference Include="Microsoft.Windows.SDK.NET.Ref"
+                              TargetFramework="net6.0-windows10.0.19041.0"
+                              RuntimeFrameworkName="Microsoft.Windows.SDK.NET.Ref"
+                              DefaultRuntimeFrameworkVersion="$(MicrosoftWindowsSDKNETRef10_0_19041PackageVersion)"
+                              LatestRuntimeFrameworkVersion="$(MicrosoftWindowsSDKNETRef10_0_19041PackageVersion)"
+                              TargetingPackName="Microsoft.Windows.SDK.NET.Ref"
+                              TargetingPackVersion="$(MicrosoftWindowsSDKNETRef10_0_19041PackageVersion)"
+                              RuntimePackAlwaysCopyLocal="true"
+                              RuntimePackNamePatterns="Microsoft.Windows.SDK.NET.Ref"
+                              RuntimePackRuntimeIdentifiers="any"
+                              IsWindowsOnly="true"
+                              />
+
+    <!-- .NET 5.0 -->
+    <KnownFrameworkReference Include="Microsoft.NETCore.App"
+                              TargetFramework="net5.0"
+                              RuntimeFrameworkName="Microsoft.NETCore.App"
+                              DefaultRuntimeFrameworkVersion="5.0.0"
+                              LatestRuntimeFrameworkVersion="$(_NET50RuntimePackVersion)"
+                              TargetingPackName="Microsoft.NETCore.App.Ref"
+                              TargetingPackVersion="$(_NET50TargetingPackVersion)"
+                              RuntimePackNamePatterns="Microsoft.NETCore.App.Runtime.**RID**"
+                              RuntimePackRuntimeIdentifiers="@(Net50RuntimePackRids, '%3B')"
+                              IsTrimmable="true"
+                              />
+
+    <KnownAppHostPack Include="Microsoft.NETCore.App"
+                      TargetFramework="net5.0"
+                      AppHostPackNamePattern="Microsoft.NETCore.App.Host.**RID**"
+                      AppHostPackVersion="$(_NET50RuntimePackVersion)"
+                      AppHostRuntimeIdentifiers="@(Net50AppHostRids, '%3B')"
+                      />
+
+    <KnownCrossgen2Pack Include="Microsoft.NETCore.App.Crossgen2"
+                        TargetFramework="net5.0"
+                        Crossgen2PackNamePattern="Microsoft.NETCore.App.Crossgen2.**RID**"
+                        Crossgen2PackVersion="$(_NET50RuntimePackVersion)"
+                        Crossgen2RuntimeIdentifiers="@(Net50Crossgen2SupportedRids, '%3B')"
+                        />
+    
+    <KnownFrameworkReference Include="Microsoft.WindowsDesktop.App"
+                              TargetFramework="net5.0"
+                              RuntimeFrameworkName="Microsoft.WindowsDesktop.App"
+                              DefaultRuntimeFrameworkVersion="5.0.0"
+                              LatestRuntimeFrameworkVersion="$(_WindowsDesktop50RuntimePackVersion)"
+                              TargetingPackName="Microsoft.WindowsDesktop.App.Ref"
+                              TargetingPackVersion="$(_WindowsDesktop50TargetingPackVersion)"
+                              RuntimePackNamePatterns="Microsoft.WindowsDesktop.App.Runtime.**RID**"
+                              RuntimePackRuntimeIdentifiers="@(WindowsDesktop50RuntimePackRids, '%3B')"
+                              IsWindowsOnly="true"
+                              />
+
+    <KnownFrameworkReference Include="Microsoft.WindowsDesktop.App.WPF"
+                              TargetFramework="net5.0"
+                              RuntimeFrameworkName="Microsoft.WindowsDesktop.App"
+                              DefaultRuntimeFrameworkVersion="5.0.0"
+                              LatestRuntimeFrameworkVersion="$(_WindowsDesktop50RuntimePackVersion)"
+                              TargetingPackName="Microsoft.WindowsDesktop.App.Ref"
+                              TargetingPackVersion="$(_WindowsDesktop50TargetingPackVersion)"
+                              RuntimePackNamePatterns="Microsoft.WindowsDesktop.App.Runtime.**RID**"
+                              RuntimePackRuntimeIdentifiers="@(WindowsDesktop50RuntimePackRids, '%3B')"
+                              IsWindowsOnly="true"
+                              Profile="WPF"
+                              />
+
+    <KnownFrameworkReference Include="Microsoft.WindowsDesktop.App.WindowsForms"
+                              TargetFramework="net5.0"
+                              RuntimeFrameworkName="Microsoft.WindowsDesktop.App"
+                              DefaultRuntimeFrameworkVersion="5.0.0"
+                              LatestRuntimeFrameworkVersion="$(_WindowsDesktop50RuntimePackVersion)"
+                              TargetingPackName="Microsoft.WindowsDesktop.App.Ref"
+                              TargetingPackVersion="$(_WindowsDesktop50TargetingPackVersion)"
+                              RuntimePackNamePatterns="Microsoft.WindowsDesktop.App.Runtime.**RID**"
+                              RuntimePackRuntimeIdentifiers="@(WindowsDesktop50RuntimePackRids, '%3B')"
+                              IsWindowsOnly="true"
+                              Profile="WindowsForms"
+                              />
+
+    <KnownFrameworkReference Include="Microsoft.AspNetCore.App"
+                              TargetFramework="net5.0"
+                              RuntimeFrameworkName="Microsoft.AspNetCore.App"
+                              DefaultRuntimeFrameworkVersion="5.0.0"
+                              LatestRuntimeFrameworkVersion="$(_AspNet50RuntimePackVersion)"
+                              TargetingPackName="Microsoft.AspNetCore.App.Ref"
+                              TargetingPackVersion="$(_AspNet50TargetingPackVersion)"
                               RuntimePackNamePatterns="Microsoft.AspNetCore.App.Runtime.**RID**"
                               RuntimePackRuntimeIdentifiers="@(AspNetCore50RuntimePackRids, '%3B')"
                               />
