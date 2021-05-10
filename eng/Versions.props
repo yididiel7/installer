@@ -77,7 +77,7 @@
   <PropertyGroup>
     <!-- Dependencies from https://github.com/dotnet/windowsdesktop -->
     <MicrosoftWindowsDesktopAppPackageVersion>5.0.7-dev</MicrosoftWindowsDesktopAppPackageVersion>
-    <MicrosoftWindowsDesktopAppRuntimewinx64PackageVersion>5.0.5</MicrosoftWindowsDesktopAppRuntimewinx64PackageVersion>
+    <MicrosoftWindowsDesktopAppRuntimewinx64PackageVersion>5.0.7</MicrosoftWindowsDesktopAppRuntimewinx64PackageVersion>
     <MicrosoftWindowsDesktopAppRefPackageVersion>5.0.0</MicrosoftWindowsDesktopAppRefPackageVersion>
     <VSRedistCommonWindowsDesktopTargetingPackx6450PackageVersion>5.0.0-rtm.20520.1</VSRedistCommonWindowsDesktopTargetingPackx6450PackageVersion>
   </PropertyGroup>
