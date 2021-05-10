@@ -10,7 +10,7 @@
     <VersionSDKMinor>3</VersionSDKMinor>
     <VersionFeature>00</VersionFeature>
     <VersionPrefix>$(VersionMajor).$(VersionMinor).$(VersionSDKMinor)$(VersionFeature)</VersionPrefix>
-    <PreReleaseVersionLabel>preview</PreReleaseVersionLabel>
+    <PreReleaseVersionLabel>arm64preview</PreReleaseVersionLabel>
     <MajorMinorVersion>$(VersionMajor).$(VersionMinor)</MajorMinorVersion>
     <CliProductBandVersion>$(MajorMinorVersion).$(VersionSDKMinor)</CliProductBandVersion>
     <!-- Enable to remove prerelease label. -->
@@ -27,7 +27,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <!-- Dependency from https://github.com/dotnet/wpf -->
-    <MicrosoftDotNetWpfProjectTemplatesPackageVersion>5.0.5-servicing.21167.2</MicrosoftDotNetWpfProjectTemplatesPackageVersion>
+    <MicrosoftDotNetWpfProjectTemplatesPackageVersion>5.0.6-dev</MicrosoftDotNetWpfProjectTemplatesPackageVersion>
   </PropertyGroup>
   <PropertyGroup>
     <!-- Dependency from https://github.com/dotnet/templating -->
@@ -76,7 +76,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <!-- Dependencies from https://github.com/dotnet/windowsdesktop -->
-    <MicrosoftWindowsDesktopAppPackageVersion>5.0.5-servicing.21167.2</MicrosoftWindowsDesktopAppPackageVersion>
+    <MicrosoftWindowsDesktopAppPackageVersion>5.0.7-dev</MicrosoftWindowsDesktopAppPackageVersion>
     <MicrosoftWindowsDesktopAppRuntimewinx64PackageVersion>5.0.5</MicrosoftWindowsDesktopAppRuntimewinx64PackageVersion>
     <MicrosoftWindowsDesktopAppRefPackageVersion>5.0.0</MicrosoftWindowsDesktopAppRefPackageVersion>
     <VSRedistCommonWindowsDesktopTargetingPackx6450PackageVersion>5.0.0-rtm.20520.1</VSRedistCommonWindowsDesktopTargetingPackx6450PackageVersion>
