@@ -303,10 +303,11 @@
       </BundledLayoutComponent>
 
       <BundledInstallerComponent Include="DownloadedWinFormsAndWpfSharedFrameworkInstallerFile"
-                                 Condition="'$(SkipBuildingInstallers)' != 'true' And '$(InstallerExtension)' != '' And !$(Architecture.StartsWith('arm'))">
-        <BaseUrl>$(WinFormsAndWpfSharedFxRootUrl)$(WindowsDesktopBlobVersion)</BaseUrl>
-        <DownloadFileName>$(DownloadedWinFormsAndWpfSharedFrameworkInstallerFileName)</DownloadFileName>
-      </BundledInstallerComponent>
+                                 Condition="'$(SkipBuildingInstallers)' != 'true' And '$(InstallerExtension)' != '' And (!$(Architecture.StartsWith('arm')) or '$(Rid)' == 'win-arm64')">
+         <BaseUrl>$(WinFormsAndWpfSharedFxRootUrl)$(WindowsDesktopBlobVersion)</BaseUrl>
+         <DownloadFileName>$(DownloadedWinFormsAndWpfSharedFrameworkInstallerFileName)</DownloadFileName>
+       </BundledInstallerComponent>
+           
     </ItemGroup>
 
   </Target>
