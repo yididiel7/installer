@@ -332,8 +332,18 @@
       </ComponentToDownload>
     </ItemGroup>
 
-    <DownloadFile Condition=" '@(ComponentToDownload)' != '' And '%(ComponentToDownload.ShouldDownload)' == 'true'"
+    <DownloadFile Condition=" '@(ComponentToDownload)' != '' And '%(ComponentToDownload.ShouldDownload)' == 'true' 
+        and '%(ComponentToDownload.Identity)' != 'DownloadedWinFormsAndWpfSharedFrameworkInstallerFile'
+        and '%(ComponentToDownload.Identity)' != 'DownloadedWindowsDesktopTargetingPackInstallerFile'"
                   Uri="%(ComponentToDownload.BaseUrl)/%(ComponentToDownload.DownloadFileName)"
+                  PrivateUri="%(ComponentToDownload.PrivateBaseUrl)/%(ComponentToDownload.DownloadFileName)$(DOTNETCLIMSRC_READ_SAS_TOKEN)"
+                  DestinationPath="%(ComponentToDownload.DownloadDestination)" />
+
+        <!-- TODO: Remove this:  Added only to avoid having to push packages to blob store to support local builds.  -->
+    <DownloadFile 
+        Condition="'%(ComponentToDownload.Identity)' == 'DownloadedWinFormsAndWpfSharedFrameworkInstallerFile'
+        or '%(ComponentToDownload.Identity)' == 'DownloadedWindowsDesktopTargetingPackInstallerFile'"
+        Uri="file:///dotnet-windowsdesktop2/artifacts/packages/release/Shipping/%(ComponentToDownload.DownloadFileName)"
                   PrivateUri="%(ComponentToDownload.PrivateBaseUrl)/%(ComponentToDownload.DownloadFileName)$(DOTNETCLIMSRC_READ_SAS_TOKEN)"
                   DestinationPath="%(ComponentToDownload.DownloadDestination)" />
 
